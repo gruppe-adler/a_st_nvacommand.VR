@@ -1,0 +1,412 @@
+version=53;
+class EditorData
+{
+	moveGridStep=1;
+	angleGridStep=0.2617994;
+	scaleGridStep=1;
+	autoGroupingDist=10;
+	toggles=1;
+	class ItemIDProvider
+	{
+		nextID=41;
+	};
+	class Camera
+	{
+		pos[]={1514.6381,36.718914,5103.9536};
+		dir[]={0.39636624,-0.62762356,-0.67009103};
+		up[]={0.31953695,0.77850455,-0.54020435};
+		aside[]={-0.86071867,1.603039e-007,-0.50912321};
+	};
+};
+binarizationWanted=0;
+addons[]=
+{
+	"A3_Characters_F",
+	"A3_Modules_F"
+};
+class AddonsMetaData
+{
+	class List
+	{
+		items=2;
+		class Item0
+		{
+			className="A3_Characters_F";
+			name="Arma 3 Alpha - Characters and Clothing";
+			author="Bohemia Interactive";
+			url="https://www.arma3.com";
+		};
+		class Item1
+		{
+			className="A3_Modules_F";
+			name="Arma 3 Alpha - Scripted Modules";
+			author="Bohemia Interactive";
+			url="https://www.arma3.com";
+		};
+	};
+};
+randomSeed=8659179;
+class ScenarioData
+{
+	author="nomisum";
+};
+class Mission
+{
+	class Intel
+	{
+		timeOfChanges=1800.0002;
+		startWeather=0;
+		startWind=0.1;
+		startWaves=0.1;
+		forecastWeather=0;
+		forecastWind=0.1;
+		forecastWaves=0.1;
+		forecastLightnings=0.1;
+		wavesForced=1;
+		windForced=1;
+		year=2035;
+		day=28;
+		hour=13;
+		minute=37;
+		startFogDecay=0.014;
+		forecastFogDecay=0.014;
+	};
+	class Entities
+	{
+		items=14;
+		class Item0
+		{
+			dataType="Group";
+			side="West";
+			class Entities
+			{
+				items=1;
+				class Item0
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={1521.7675,5.0014391,5062.5977};
+						angles[]={0,1.3259506,0};
+					};
+					side="West";
+					flags=7;
+					class Attributes
+					{
+						isPlayer=1;
+					};
+					id=1;
+					type="B_Survivor_F";
+				};
+			};
+			class Attributes
+			{
+			};
+			id=0;
+		};
+		class Item1
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={1513.901,5,5044.7622};
+			};
+			init="call{[this] call GRAD_nvacommand_fnc_addSectorPoint;}";
+			id=22;
+			type="Logic";
+		};
+		class Item2
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={1510.9231,5,5061.5669};
+			};
+			init="call{[this] call GRAD_nvacommand_fnc_addSectorPoint;}";
+			id=23;
+			type="Logic";
+		};
+		class Item3
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={1517.6647,5,5069.3633};
+			};
+			init="call{[this] call GRAD_nvacommand_fnc_addSectorPoint;}";
+			id=24;
+			type="Logic";
+		};
+		class Item4
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={1528.0947,5,5071.4648};
+			};
+			init="call{[this] call GRAD_nvacommand_fnc_addSectorPoint;}";
+			id=25;
+			type="Logic";
+		};
+		class Item5
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={1531.8959,5,5060.416};
+			};
+			init="call{[this] call GRAD_nvacommand_fnc_addSectorPoint;}";
+			id=26;
+			type="Logic";
+		};
+		class Item6
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={1529.4301,5,5049.0723};
+			};
+			init="call{[this] call GRAD_nvacommand_fnc_addSectorPoint;}";
+			id=27;
+			type="Logic";
+		};
+		class Item7
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={1543.8243,5,5047.2842};
+			};
+			init="call{[this] call GRAD_nvacommand_fnc_addSectorPoint;}";
+			id=34;
+			type="Logic";
+		};
+		class Item8
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={1540.8464,5,5064.0889};
+			};
+			init="call{[this] call GRAD_nvacommand_fnc_addSectorPoint;}";
+			id=35;
+			type="Logic";
+		};
+		class Item9
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={1547.588,5,5071.8853};
+			};
+			init="call{[this] call GRAD_nvacommand_fnc_addSectorPoint;}";
+			id=36;
+			type="Logic";
+		};
+		class Item10
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={1558.0181,5,5073.9868};
+			};
+			init="call{[this] call GRAD_nvacommand_fnc_addSectorPoint;}";
+			id=37;
+			type="Logic";
+		};
+		class Item11
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={1561.8192,5,5062.938};
+			};
+			init="call{[this] call GRAD_nvacommand_fnc_addSectorPoint;}";
+			id=38;
+			type="Logic";
+		};
+		class Item12
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={1559.3534,5,5051.5942};
+			};
+			init="call{[this] call GRAD_nvacommand_fnc_addSectorPoint;}";
+			id=39;
+			type="Logic";
+		};
+		class Item13
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={1536.4476,5,5077.6636};
+			};
+			init="call{[this] call GRAD_nvacommand_fnc_addSectorPoint;}";
+			id=40;
+			type="Logic";
+		};
+	};
+	class Connections
+	{
+		class LinkIDProvider
+		{
+			nextID=15;
+		};
+		class Links
+		{
+			items=15;
+			class Item0
+			{
+				linkID=0;
+				item0=27;
+				item1=22;
+				class CustomData
+				{
+					type="Sync";
+				};
+			};
+			class Item1
+			{
+				linkID=1;
+				item0=22;
+				item1=23;
+				class CustomData
+				{
+					type="Sync";
+				};
+			};
+			class Item2
+			{
+				linkID=2;
+				item0=23;
+				item1=24;
+				class CustomData
+				{
+					type="Sync";
+				};
+			};
+			class Item3
+			{
+				linkID=3;
+				item0=24;
+				item1=25;
+				class CustomData
+				{
+					type="Sync";
+				};
+			};
+			class Item4
+			{
+				linkID=4;
+				item0=25;
+				item1=26;
+				class CustomData
+				{
+					type="Sync";
+				};
+			};
+			class Item5
+			{
+				linkID=5;
+				item0=26;
+				item1=27;
+				class CustomData
+				{
+					type="Sync";
+				};
+			};
+			class Item6
+			{
+				linkID=6;
+				item0=39;
+				item1=34;
+				class CustomData
+				{
+					type="Sync";
+				};
+			};
+			class Item7
+			{
+				linkID=7;
+				item0=34;
+				item1=35;
+				class CustomData
+				{
+					type="Sync";
+				};
+			};
+			class Item8
+			{
+				linkID=8;
+				item0=35;
+				item1=36;
+				class CustomData
+				{
+					type="Sync";
+				};
+			};
+			class Item9
+			{
+				linkID=9;
+				item0=36;
+				item1=37;
+				class CustomData
+				{
+					type="Sync";
+				};
+			};
+			class Item10
+			{
+				linkID=10;
+				item0=37;
+				item1=38;
+				class CustomData
+				{
+					type="Sync";
+				};
+			};
+			class Item11
+			{
+				linkID=11;
+				item0=38;
+				item1=39;
+				class CustomData
+				{
+					type="Sync";
+				};
+			};
+			class Item12
+			{
+				linkID=12;
+				item0=40;
+				item1=36;
+				class CustomData
+				{
+					type="Sync";
+				};
+			};
+			class Item13
+			{
+				linkID=13;
+				item0=40;
+				item1=25;
+				class CustomData
+				{
+					type="Sync";
+				};
+			};
+			class Item14
+			{
+				linkID=14;
+				item0=27;
+				item1=34;
+				class CustomData
+				{
+					type="Sync";
+				};
+			};
+		};
+	};
+};
