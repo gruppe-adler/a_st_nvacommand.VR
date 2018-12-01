@@ -8,27 +8,28 @@ class EditorData
 	toggles=1;
 	class ItemIDProvider
 	{
-		nextID=41;
+		nextID=45;
 	};
 	class Camera
 	{
-		pos[]={1514.6381,36.718914,5103.9536};
-		dir[]={0.39636624,-0.62762356,-0.67009103};
-		up[]={0.31953695,0.77850455,-0.54020435};
-		aside[]={-0.86071867,1.603039e-007,-0.50912321};
+		pos[]={1513.5289,36.583778,5021.2891};
+		dir[]={0.33783388,-0.66497946,0.66612381};
+		up[]={0.3007865,0.74684674,0.59307516};
+		aside[]={0.89187962,2.4712062e-007,-0.45233095};
 	};
 };
 binarizationWanted=0;
 addons[]=
 {
 	"A3_Characters_F",
-	"A3_Modules_F"
+	"A3_Modules_F",
+	"A3_Signs_F"
 };
 class AddonsMetaData
 {
 	class List
 	{
-		items=2;
+		items=3;
 		class Item0
 		{
 			className="A3_Characters_F";
@@ -40,6 +41,13 @@ class AddonsMetaData
 		{
 			className="A3_Modules_F";
 			name="Arma 3 Alpha - Scripted Modules";
+			author="Bohemia Interactive";
+			url="https://www.arma3.com";
+		};
+		class Item2
+		{
+			className="A3_Signs_F";
+			name="Arma 3 - Signs";
 			author="Bohemia Interactive";
 			url="https://www.arma3.com";
 		};
@@ -73,7 +81,7 @@ class Mission
 	};
 	class Entities
 	{
-		items=14;
+		items=18;
 		class Item0
 		{
 			dataType="Group";
@@ -175,7 +183,7 @@ class Mission
 			dataType="Logic";
 			class PositionInfo
 			{
-				position[]={1543.8243,5,5047.2842};
+				position[]={1543.8264,5,5046.5674};
 			};
 			init="call{[this] call GRAD_nvacommand_fnc_addSectorPoint;}";
 			id=34;
@@ -186,7 +194,7 @@ class Mission
 			dataType="Logic";
 			class PositionInfo
 			{
-				position[]={1540.8464,5,5064.0889};
+				position[]={1548.1018,5,5062.2598};
 			};
 			init="call{[this] call GRAD_nvacommand_fnc_addSectorPoint;}";
 			id=35;
@@ -241,11 +249,71 @@ class Mission
 			dataType="Logic";
 			class PositionInfo
 			{
-				position[]={1536.4476,5,5077.6636};
+				position[]={1539.4863,5,5065.7676};
 			};
 			init="call{[this] call GRAD_nvacommand_fnc_addSectorPoint;}";
 			id=40;
 			type="Logic";
+		};
+		class Item14
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={1530.7229,5.3904371,5060.1157};
+			};
+			side="Empty";
+			flags=4;
+			class Attributes
+			{
+			};
+			id=41;
+			type="Pole_F";
+		};
+		class Item15
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={1546.9089,5.3904371,5061.5186};
+			};
+			side="Empty";
+			flags=4;
+			class Attributes
+			{
+			};
+			id=42;
+			type="Pole_F";
+		};
+		class Item16
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={1510.9314,5.3904371,5058.6211};
+			};
+			side="Empty";
+			flags=4;
+			class Attributes
+			{
+			};
+			id=43;
+			type="Pole_F";
+		};
+		class Item17
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={1561.9675,5.3904371,5064.3882};
+			};
+			side="Empty";
+			flags=4;
+			class Attributes
+			{
+			};
+			id=44;
+			type="Pole_F";
 		};
 	};
 	class Connections
