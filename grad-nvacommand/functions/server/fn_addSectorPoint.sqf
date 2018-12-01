@@ -4,8 +4,8 @@ params ["_object"];
 
 if (!isServer) exitWith {};
 
-private _existingObjects = missionNamespace getVariable ["GRAD_NVACOMMAND_SECTORPOINTS", []];
+private _existingObjects = missionNamespace getVariable ["GRAD_NVACOMMAND_SECTORRAWDATA", []];
 
 _existingObjects pushBack _object;
 
-missionNamespace setVariable ["GRAD_NVACOMMAND_SECTORPOINTS", _existingObjects];
+missionNamespace setVariable ["GRAD_NVACOMMAND_SECTORRAWDATA", _existingObjects];

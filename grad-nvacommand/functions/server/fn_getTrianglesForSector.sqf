@@ -22,8 +22,6 @@ private _fnc_triangleHeight = { // height from v to uw
 private _fnc_splitTriangle = {
     private _polygon = _this;
 
-    diag_log format ["_triangles building up: %1", _triangles];
-
     // already triangular
     if (count _polygon <= 3) exitWith {
         _triangles append _polygon;
