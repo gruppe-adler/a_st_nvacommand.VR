@@ -1,5 +1,16 @@
 enableDebugConsole = 1;
 
+#define MODULES_DIRECTORY node_modules
+#include "node_modules\grad-aicommand\grad_aicommand.hpp"
+
 class cfgFunctions {
     #include "grad-nvacommand\cfgFunctions.hpp"
+    #include "node_modules\grad-aicommand\cfgFunctions.hpp"
+};
+
+
+class CfgGradAICommand {
+    canReceiveCommandsDefault = 1;
+    canGiveCommandsDefault = 1;
+    canUseHighcommandDefault = 0;
 };

@@ -4,10 +4,11 @@ addMissionEventHandler ["MapSingleClick", {
 	// get sectors and already triggered sectors
     private _sectors = missionNamespace getVariable ["GRAD_NVACOMMAND_SECTORS", []];
     private _triggeredTriangles = missionNamespace getVariable ["GRAD_nvacommand_triggeredTriangles", []];
+    private _dismissal = false; // todo inactive/active sectors
 
 	{   
             private _sector = _x;
-            if (_pos inPolygon _sector) then {            
+            if (_pos inPolygon _sector) then {           
                 private _triangles = [_sector] call GRAD_nvacommand_fnc_getTrianglesForSector;
                 private _intersections = _triangles arrayIntersect _triggeredTriangles;
 
@@ -16,8 +17,12 @@ addMissionEventHandler ["MapSingleClick", {
                 } forEach _intersections;
 
                 missionNamespace setVariable ["GRAD_nvacommand_triggeredTriangles", _triggeredTriangles, true];
-
-                systemChat localize ("str_nvacommand_alarmDismissed");
+                _dismissal = true;
             };
-        } forEach _sectors;
+    } forEach _sectors;
+
+    if (_dismissal) then {
+        systemChat localize ("str_nvacommand_alarmDismissed");
+    };
 }];
+

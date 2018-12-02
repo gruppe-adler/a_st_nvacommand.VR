@@ -11,7 +11,7 @@ private _triggeredTriangles = missionNamespace getVariable ["GRAD_nvacommand_tri
 // check in which sector alarm did go off
 {   
     private _sector = _x;
-    if (_position inPolygon _sector) then {            
+    if (_position inPolygon _sector) then {   
         private _triangles = [_sector] call GRAD_nvacommand_fnc_getTrianglesForSector;
 
         // add sector triangles to already active sectors
@@ -26,7 +26,7 @@ switch (_type) do {
 	case "fence" : { 
 		systemChat localize ("str_nvacommand_fenceCut");
 	}; 
-	case "tripflare" : {
+	case "flare" : {
 		systemChat localize ("str_nvacommand_tripflareTriggered");
 	}; 
 	default {
