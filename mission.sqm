@@ -12,10 +12,10 @@ class EditorData
 	};
 	class Camera
 	{
-		pos[]={1499.4899,27.385723,5069.5313};
-		dir[]={0.81470209,-0.44608623,0.37076348};
-		up[]={0.40610534,0.89492321,0.18481714};
-		aside[]={0.41425976,4.4348417e-007,-0.91027391};
+		pos[]={1504.8093,27.49226,5075.0122};
+		dir[]={0.78515917,-0.57395244,0.23308374};
+		up[]={0.55028719,0.81880987,0.16336094};
+		aside[]={0.28462401,-2.6336056e-007,-0.95876223};
 	};
 };
 binarizationWanted=0;
@@ -32,13 +32,14 @@ addons[]=
 	"rhs_c_heavyweapons",
 	"A3_Characters_F",
 	"ace_nouniformrestrictions",
-	"A3_Weapons_F"
+	"A3_Weapons_F",
+	"ARC_Units"
 };
 class AddonsMetaData
 {
 	class List
 	{
-		items=12;
+		items=13;
 		class Item0
 		{
 			className="A3_Modules_F";
@@ -118,6 +119,11 @@ class AddonsMetaData
 			name="Arma 3 Alpha - Weapons and Accessories";
 			author="Bohemia Interactive";
 			url="https://www.arma3.com";
+		};
+		class Item12
+		{
+			className="ARC_Units";
+			name="ARC_Units";
 		};
 	};
 };
@@ -287,7 +293,7 @@ class Mission
 			dataType="Logic";
 			class PositionInfo
 			{
-				position[]={1544.3811,5,5105.4863};
+				position[]={1547.2765,5,5108.4399};
 			};
 			init="call{[this] call GRAD_nvacommand_fnc_addSectorPoint;}";
 			id=40;
@@ -1628,6 +1634,20 @@ class Mission
 						isPlayer=1;
 						class Inventory
 						{
+							class vest
+							{
+								typeName="ARC_GER_Tropentarn_BandollierB_rgr";
+								isBackpack=0;
+								class ItemCargo
+								{
+									items=1;
+									class Item0
+									{
+										name="ACE_wirecutter";
+										count=1;
+									};
+								};
+							};
 							map="ItemMap";
 						};
 					};
