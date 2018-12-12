@@ -8,6 +8,9 @@ class cfgFunctions {
     #include "node_modules\grad-aicommand\cfgFunctions.hpp"
 };
 
+class cfgSounds {
+    #include "grad-nvacommand\cfgSounds.hpp"
+};
 
 class CfgGradAICommand {
     canReceiveCommandsDefault = 1;

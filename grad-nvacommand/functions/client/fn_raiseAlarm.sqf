@@ -1,7 +1,4 @@
-params ["_position", "_type"];
-
-playSound3D ["A3\Sounds_F\sfx\alarm_independent.wss", player];
-
+params ["_position", "_type", ["_unit", objNull]];
 
 // get sectors and already triggered sectors
 private _triggeredSectors = missionNamespace getVariable ["GRAD_nvacommand_triggeredSectors", []];
@@ -28,6 +25,13 @@ private _untriggeredSectorsTemp = + _untriggeredSectors;
 missionNamespace setVariable ["GRAD_nvacommand_triggeredSectors", _triggeredSectors];
 missionNamespace setVariable ["GRAD_nvacommand_untriggeredSectors", _untriggeredSectorsTemp];
 
+
+private _flare = "F_40mm_White" createVehicle _position;
+_flare setVelocity [random 5, random 5, 50];
+playSound3D ["A3\Sounds_F_Kart\Weapons\starting_pistol_1", player, false, _position, 50, 1, 100];
+
+
+[_position] call GRAD_nvacommand_fnc_handleAlarm;
 
 // give feedback whats happening
 switch (_type) do { 
