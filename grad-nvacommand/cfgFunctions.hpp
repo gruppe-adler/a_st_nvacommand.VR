@@ -15,6 +15,7 @@ class GRAD_nvacommand {
        class addSectorPoint;
        class generateSectors;
        class getTrianglesForSector;
+       class handleAlarm;
        class serverLoop { postInit = 1; };
     };
 };

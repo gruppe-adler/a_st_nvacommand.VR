@@ -17,6 +17,6 @@ if (!isServer) exitWith {};
 
         private _position = position _fence;
 
-        [_position, "fence"] call GRAD_nvacommand_fnc_raiseAlarm;
+        [_position, "fence", _unit] call GRAD_nvacommand_fnc_raiseAlarm;
 
 }] call CBA_fnc_addEventHandler;
