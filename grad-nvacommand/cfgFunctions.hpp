@@ -3,9 +3,10 @@ class GRAD_nvacommand {
 	class client {
 		file = grad-nvacommand\functions\client;
 
-		class addAlarmDismissAction { postInit = 1; };
-		class addMapEventhandler { postInit = 1; };
-		class raiseAlarm;
+		class alarmDismissAction;
+		class addMapEventhandler;
+		class initMap;
+    class raiseAlarm;
 	};
 
     class server {

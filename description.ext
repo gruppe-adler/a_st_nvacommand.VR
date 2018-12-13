@@ -16,4 +16,5 @@ class CfgGradAICommand {
     canReceiveCommandsDefault = 1;
     canGiveCommandsDefault = 1;
     canUseHighcommandDefault = 0;
+    onMapOpenend = "systemChat 'triggered'; [_this] call GRAD_nvacommand_fnc_initMap;";
 };

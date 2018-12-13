@@ -12,7 +12,7 @@ class EditorData
 	};
 	class Camera
 	{
-		pos[]={1514.2517,15.029079,5088.6138};
+		pos[]={1513.9185,15.029079,5087.5093};
 		dir[]={0.88025039,-0.40381229,0.24964128};
 		up[]={0.38860208,0.91475528,0.11021066};
 		aside[]={0.27287841,7.9110032e-007,-0.96217418};
@@ -1630,7 +1630,7 @@ class Mission
 					flags=7;
 					class Attributes
 					{
-						init="call{[player,true] call grad_aicommand_fnc_setCanGiveCommands;}";
+						init="call{[player,true] call grad_aicommand_fnc_setCanUseHighCommand;}";
 						isPlayer=1;
 						class Inventory
 						{

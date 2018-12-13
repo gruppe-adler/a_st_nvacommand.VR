@@ -7,6 +7,7 @@ if (!isServer) exitWith {};
         params ["_flare", "_position"];
 
         [_position, "flare"] call GRAD_nvacommand_fnc_raiseAlarm;
+        deleteVehicle _flare;
 
 }] call CBA_fnc_addEventHandler;
 

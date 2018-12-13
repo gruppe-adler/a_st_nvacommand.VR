@@ -1,11 +1,14 @@
 params ["_index", "_position"];
 
 private _flare = "F_40mm_White" createVehicle _position;
-_flare setVelocity [random 5, random 5, 50];
-playSound3D ["A3\Sounds_F_Kart\Weapons\starting_pistol_1", _flare, false, _position, 50, 1, 100];
+_flare setVelocity [random 5, random 5, 100];
+playSound3D ["A3\Sounds_F_Kart\Weapons\starting_pistol_1.wss", _flare, false, _position, 25, 1, 100];
 
 
 private _searchLights = nearestObjects [_position, ["rhs_KORD_high_MSV"], 1500];
+
+private _identifier = format ["GRAD_nvacommand_alertIndex_%1", _index];
+private _isRunning = missionNamespace setVariable [_identifier, true];
 
 // get nearest searchlights
 
@@ -30,22 +33,23 @@ if (count _searchLights > 0) then {
         _searchlight2ndNearest setVariable ["GRAD_nvacommand_alert", true];
     };
 
-    private _count = 0;
 
     [{
         params ["_args", "_handle"];
-        _args params ["_searchlightNearest", "_searchlight2ndNearest", "_count"];
+        _args params ["_index", "_searchlightNearest", "_searchlight2ndNearest"];
 
-        _count = _count + 1;
+        private _identifier = format ["GRAD_nvacommand_alertIndex_%1", _index];
+        private _isRunning = missionNamespace getVariable [_identifier, false];
 
-        if (_count > 60) exitWith {
+        if (!_isRunning) exitWith {
             [_handle] call CBA_fnc_removePerFramehandler;
             _searchlightNearest setVariable ["GRAD_nvacommand_alert", false];
             _searchlight2ndNearest setVariable ["GRAD_nvacommand_alert", false];
+           
         };
         
         [_searchlightNearest, ["GRAD_nvacommand_alarm", 1000]] remoteExec ["say3D", [0,-2] select isDedicated];
         [_searchlight2ndNearest, ["GRAD_nvacommand_alarm", 1000]] remoteExec ["say3D", [0,-2] select isDedicated];    
         
-    }, 3.5, [_searchlightNearest, _searchlight2ndNearest, _count]] call CBA_fnc_addPerFramehandler;
+    }, 3.5, [_index, _searchlightNearest, _searchlight2ndNearest]] call CBA_fnc_addPerFramehandler;
 };
