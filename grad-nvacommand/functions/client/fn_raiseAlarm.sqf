@@ -9,6 +9,7 @@ private _untriggeredSectorsTemp = + _untriggeredSectors;
 
 // check in which sector alarm did go off
 {
+    private _index = _x select 0;
     private _sector = _x select 1;
 
     // diag_log format ["alarm at %1 inPolygon %2", _position, _sector];
@@ -19,19 +20,14 @@ private _untriggeredSectorsTemp = + _untriggeredSectors;
 
         _triggeredSectors append [_x];
         _untriggeredSectorsTemp deleteAt _deleteIndex;
+
+        [_index, _position] call GRAD_nvacommand_fnc_handleAlarm;
     };
 } forEach _untriggeredSectors;
 
 missionNamespace setVariable ["GRAD_nvacommand_triggeredSectors", _triggeredSectors];
 missionNamespace setVariable ["GRAD_nvacommand_untriggeredSectors", _untriggeredSectorsTemp];
 
-
-private _flare = "F_40mm_White" createVehicle _position;
-_flare setVelocity [random 5, random 5, 50];
-playSound3D ["A3\Sounds_F_Kart\Weapons\starting_pistol_1", player, false, _position, 50, 1, 100];
-
-
-[_position] call GRAD_nvacommand_fnc_handleAlarm;
 
 // give feedback whats happening
 switch (_type) do { 

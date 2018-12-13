@@ -14,6 +14,8 @@ private _display = findDisplay GRAD_AICOMMAND_COMMANDWINDOW_DIALOG;
 private _map = _display ctrlCreate ["RscMapControl",GRAD_AICOMMAND_COMMANDWINDOW_MAP];
 private _contextmenu = _display ctrlCreate ["RscControlsGroupNoScrollbars",GRAD_AICOMMAND_CONTEXTMENU_GROUP];
 [_display] call FUNC(createRenameGroupDialog);
+[_display] call FUNC(createHelpDialog);
+
 _map ctrlSetPosition [safeZoneX,safeZoneY,safeZoneW,safeZoneH];
 _map ctrlCommit 0;
 _contextmenu ctrlShow false;
@@ -22,6 +24,7 @@ _renameGroupMenu ctrlShow false;
 GVAR(highcommandSide) = side _player;
 
 if (isNil QGVAR(individualUnitsGroups)) then {GVAR(individualUnitsGroups) = []};
+if (isNil QGVAR(helpOpen)) then {GVAR(helpOpen) = false};
 
 // highcommand mode
 if (_unit == _player) then {

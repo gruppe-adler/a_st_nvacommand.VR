@@ -1,4 +1,9 @@
-params ["_position"];
+params ["_index", "_position"];
+
+private _flare = "F_40mm_White" createVehicle _position;
+_flare setVelocity [random 5, random 5, 50];
+playSound3D ["A3\Sounds_F_Kart\Weapons\starting_pistol_1", _flare, false, _position, 50, 1, 100];
+
 
 private _searchLights = nearestObjects [_position, ["rhs_KORD_high_MSV"], 1500];
 

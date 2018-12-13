@@ -15,7 +15,11 @@ if (isNil QGVAR(onMapOpenend)) then {
 };
 
 if (isNil QGVAR(onGroupSelected)) then {
-    GVAR(onGroupSelected) = compile ([missionConfigFile >> "CfgGradAICommand","onMapOpenend",""] call BIS_fnc_returnConfigEntry);
+    GVAR(onGroupSelected) = compile ([missionConfigFile >> "CfgGradAICommand","onGroupSelected",""] call BIS_fnc_returnConfigEntry);
+};
+
+if (isNil QGVAR(onGroupUnselected)) then {
+    GVAR(onGroupUnselected) = compile ([missionConfigFile >> "CfgGradAICommand","onGroupUnselected",""] call BIS_fnc_returnConfigEntry);
 };
 
 if (isNil QGVAR(onWaypointSelected)) then {

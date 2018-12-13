@@ -8,7 +8,8 @@ addMissionEventHandler ["MapSingleClick", {
     private _dismissal = false; // todo inactive/active sectors
 
 	{   
-            private _sector = _x;
+            private _index = _x select 0;
+            private _sector = _x select 1;
             if (_pos inPolygon _sector) then {           
                 
                 private _deleteIndex = _triggeredSectorsTemp find _x;
