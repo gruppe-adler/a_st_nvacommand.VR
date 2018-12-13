@@ -16,7 +16,8 @@ player setVariable ["GRAD_nvacommand_isCommander", true];
         private _mouseToWorld = _map ctrlMapScreenToWorld getMousePosition;
         _mouseToWorld set [2,0];
         
-            
+        private _textfield = ((findDisplay 12) displayCtrl 1234);
+        _textfield ctrlSetText "";
        
         // _tooltipCtrl ctrlSetText format ["%1", _mouseToWorld]; 
         {
@@ -25,7 +26,8 @@ player setVariable ["GRAD_nvacommand_isCommander", true];
           private _color = [1,0,0,0.5 + abs(((sin(time * 100))/2))];
 
           if (_mouseToWorld inPolygon _sector) then {
-             ((findDisplay 12) displayCtrl 1234) ctrlSetText format ["Sector ALARM: %1", _identifier];
+              _textfield ctrlSetText format ["Sector %1 - ALARM", _identifier];
+
              _color = [1,0,0,1];
           };
           _map drawTriangle [_sector, _color, "#(rgb,1,1,1)color(1,1,1,1)"];
@@ -37,11 +39,14 @@ player setVariable ["GRAD_nvacommand_isCommander", true];
           private _color = [0,0,0,0.2];
 
           if (_mouseToWorld inPolygon _sector) then {
-             ((findDisplay 12) displayCtrl 1234) ctrlSetText format ["Sector: %1", _identifier];
+             _textfield ctrlSetText format ["Sector %1", _identifier];
              _color = [0,0,0,0.5];
           };
           _map drawTriangle [_sector, _color, "#(rgb,1,1,1)color(1,1,1,1)"];
         } forEach _untriggeredSectors;
+
+        _textfield ctrlSetPosition getMousePosition;
+        _textfield ctrlCommit 0;
         
 	   // copyToClipboard format ["_triggeredSectors: %1 --- _untriggeredSectors: %2", _triggeredSectors, _untriggeredSectors];
 	};
@@ -53,7 +58,10 @@ addMissionEventHandler ["Map", {
     params ["_mapIsOpened", "_mapIsForced"];
 
     if (!_mapIsOpened) exitWith {
-        ctrlDelete ((findDisplay 12) displayCtrl 1234);
+        private _existingCtrl = ((findDisplay 12) displayCtrl 1234);
+        if (!isNull _existingCtrl) then {
+            ctrlDelete _existingCtrl;
+        };
     };
 
     private _textfield = (findDisplay 12) ctrlCreate ["RscText", 1234]; 
@@ -63,16 +71,6 @@ addMissionEventHandler ["Map", {
     _textfield ctrlSetBackgroundColor [0,0,0,1]; 
     _textfield ctrlCommit 0;
 
-    /*
-    [{
-        params ["_args", "_handle"];
-        _args params ["_textfield"];
-
-        _textfield ctrlSetPosition getMousePosition;
-        _textfield ctrlSetText format ["%1", getMousePosition];
-
-    }, 0, [_textfield]] call CBA_fnc_addPerFrameHandler;
-    */
 }];
 
 /*
