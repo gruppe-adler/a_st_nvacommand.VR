@@ -1,14 +1,16 @@
 class GRAD_nvacommand {
 
   	class client {
-    		file = grad-nvacommand\functions\client;
+    	file = grad-nvacommand\functions\client;
 
-    		class alarmDismissAction;
+    	class addMapEventhandler;
         class addRepairAction { postInit = 1; };
-    		class addMapEventhandler;
-    		class initMap;
+        class alarmDismissAction;
+        class forceDefaultMap { postInit = 1; };    	
+    	class initMap;
         class raiseAlarm;
         class repairFence;
+        class selectTower;
   	};
 
     class server {

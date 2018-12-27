@@ -15,7 +15,13 @@ _map ctrlAddEventHandler ["MouseButtonClick", {
 
     if (_button == 0) then {
         private _position = _mapCtrl ctrlMapScreenToWorld [_xPos, _yPos];
-        [_position] call GRAD_nvacommand_fnc_alarmDismissAction;
+        private _tower = [_position] call GRAD_nvacommand_fnc_selectTower;
+
+        if (isNull _tower) then {
+            [_position] call GRAD_nvacommand_fnc_alarmDismissAction;
+        } else {
+            [_tower] call GRAD_nvacommand_fnc_towerAlarm;
+        };
     } else {
         systemChat "rightclick";
     };

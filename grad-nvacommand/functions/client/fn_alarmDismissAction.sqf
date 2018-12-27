@@ -28,6 +28,8 @@ missionNamespace setVariable ["GRAD_nvacommand_triggeredSectors", _triggeredSect
 missionNamespace setVariable ["GRAD_nvacommand_untriggeredSectors", _untriggeredSectors];
 
 
-if (_dismissal) then {
+if (_dismissal) exitWith {
     systemChat localize ("str_nvacommand_alarmDismissed");
+    true
 };
+false

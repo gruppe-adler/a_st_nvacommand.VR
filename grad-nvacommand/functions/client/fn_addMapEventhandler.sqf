@@ -1,6 +1,4 @@
 // todo: remove after dev
-player setVariable ["GRAD_nvacommand_isCommander", true];
-
 params ["_unit", "_player", "_display", "_map"];
 
 private _mouseOver = _display ctrlCreate ["RscText", 1234]; 
@@ -16,11 +14,11 @@ private _towers = missionNamespace getVariable ["GRAD_nvaCommand_towerList", []]
 {
    private _towerLabel = _display ctrlCreate ["RscText", -1]; 
   _towerLabel ctrlsetText "BLABLA"; 
-  _towerLabel ctrlSetPosition [0,0]; 
+  _towerLabel ctrlSetPosition [0,0,0.06,0.03];
   _towerLabel ctrlSetBackgroundColor [0,0,0,1]; 
   _towerLabel ctrlCommit 0;
 
-  _towerLabels append _towerLabel;
+  _towerLabels append [_towerLabel];
 } forEach _towers;
 
 missionNamespace setVariable ["GRAD_nvacommand_towerLabelList", _towerLabels];

@@ -1,7 +1,7 @@
 // private _towers = nearestTerrainObjects [[worldSize/2, worldSize/2], ["watchtowerclassname"], worldSize/2];
 
 
-private _towers = entities [["fakeTowerclassname"], [], false, true];
+private _towers = allMissionObjects "Land_Hlaska";
 
 {
 	_x setVariable ["GRAD_nvaCommand_towerIsManned", 4, true];

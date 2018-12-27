@@ -22,5 +22,5 @@ class CfgGradAICommand {
     onWaypointCustom1Action = "hint 'Repair Fence'; [_this] call GRAD_nvacommand_fnc_repairFence;";
 
     onWaypointCustom2Displayname = "Enter Tower";
-    onWaypointCustom2Action = "hint 'Enter Tower'; [_this] call GRAD_nvacommand_fnc_enterTower;";
+    onWaypointCustom2Action = "hint 'Enter Tower'; [_this] call GRAD_nvacommand_fnc_towerGetIn;";
 };
