@@ -103,17 +103,50 @@ _update = {
     if (_waypointDescription == "") then {_waypointDescription = "NONE"};
     _this ctrlSetText format ["ACTION (%1)",_waypointDescription];
 };
+
+// add custom actions
+
+private _customActions = "";
+
+for "_i" from 1 to 10 do {
+    private _displayName = format ["onWaypointCustom%1Displayname", _i];
+    private _actionName = format ["onWaypointCustom%1Action", _i];
+    private _name = ([missionConfigFile >> "CfgGradAICommand", _displayName,""] call BIS_fnc_returnConfigEntry);
+    private _action = ([missionConfigFile >> "CfgGradAICommand", _actionName,""] call BIS_fnc_returnConfigEntry);
+    
+    if (_name != "") then {
+        
+        _customActions = _customActions + 
+        (
+            ",[" + 
+                str _name + 
+                "," + 
+                """['true',""" + 
+                str _action + 
+                """,""" + 
+                str _name + 
+                """] call grad_aicommand_fnc_setWPStatement;""]"
+        );
+
+        diag_log format ["_customActions : %1, %2", _customActions, _name];
+    };
+};
+
+
 _statement = "[_this select 0, 'STATEMENT',[
     ['NONE',""['true','','NONE'] call grad_aicommand_fnc_setWPStatement;""],
     ['SEARCH NEARBY',""['true','[group this] call CBA_fnc_searchNearby','SEARCH NEARBY'] call grad_aicommand_fnc_setWPStatement;""],
     ['DEFEND',""['true','[group this] call CBA_fnc_taskDefend','DEFEND'] call grad_aicommand_fnc_setWPStatement;""],
     ['GARRISON',""['true','[getpos this,nil,thisList,30] call ace_ai_fnc_garrison','GARRISON'] call grad_aicommand_fnc_setWPStatement;""],
-    ['RANDOM PATROL (50m)',""['true','[group this,getPos this,50] call CBA_fnc_taskPatrol','PATROL (50m)'] call grad_aicommand_fnc_setWPStatement;""],
-    ['RANDOM PATROL (100m)',""['true','[group this,getPos this,100] call CBA_fnc_taskPatrol','PATROL (100m)'] call grad_aicommand_fnc_setWPStatement;""],
-    ['RANDOM PATROL (200m)',""['true','[group this,getPos this,200] call CBA_fnc_taskPatrol','PATROL (200m)'] call grad_aicommand_fnc_setWPStatement;""],
-    ['RANDOM PATROL (400m)',""['true','[group this,getPos this,400] call CBA_fnc_taskPatrol','PATROL (400m)'] call grad_aicommand_fnc_setWPStatement;""]
-]] call grad_aicommand_fnc_createSubMenu";
+    ['PATROL (50m)',""['true','[group this,getPos this,50] call CBA_fnc_taskPatrol','PATROL (50m)'] call grad_aicommand_fnc_setWPStatement;""],
+    ['PATROL (100m)',""['true','[group this,getPos this,100] call CBA_fnc_taskPatrol','PATROL (100m)'] call grad_aicommand_fnc_setWPStatement;""],
+    ['PATROL (200m)',""['true','[group this,getPos this,200] call CBA_fnc_taskPatrol','PATROL (200m)'] call grad_aicommand_fnc_setWPStatement;""],
+    ['PATROL (400m)',""['true','[group this,getPos this,400] call CBA_fnc_taskPatrol','PATROL (400m)'] call grad_aicommand_fnc_setWPStatement;""]" +
+    _customActions +
+"]] call grad_aicommand_fnc_createSubMenu";
 call _fnc_create;
+
+
 
 _update = nil;
 _text = "DELETE WAYPOINT";
