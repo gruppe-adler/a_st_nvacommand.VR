@@ -17,8 +17,11 @@ class GRAD_nvacommand {
          class addCBAEvents { postInit = 1; };
          class addSectorPoint;
          class generateSectors;
+         class initTowers { postInit = 1; };
          class getTrianglesForSector;
          class handleAlarm;
          class serverLoop { postInit = 1; };
+         class towerAlarm;
+         class towerGetIn;
     };
 };

@@ -10,12 +10,39 @@ _mouseOver ctrlSetBackgroundColor [0,0,0,1];
 _mouseOver ctrlCommit 0;
 
 
+private _towerLabels = [];
+// towers
+private _towers = missionNamespace getVariable ["GRAD_nvaCommand_towerList", []];
+{
+   private _towerLabel = _display ctrlCreate ["RscText", -1]; 
+  _towerLabel ctrlsetText "BLABLA"; 
+  _towerLabel ctrlSetPosition [0,0]; 
+  _towerLabel ctrlSetBackgroundColor [0,0,0,1]; 
+  _towerLabel ctrlCommit 0;
+
+  _towerLabels append _towerLabel;
+} forEach _towers;
+
+missionNamespace setVariable ["GRAD_nvacommand_towerLabelList", _towerLabels];
+
 // add map draw eh
 _map ctrlAddEventHandler ["Draw", 
 {
     params ["_map"];
 
     if (player getVariable ["GRAD_nvacommand_isCommander", false]) then {
+
+        private _towerLabels = missionNamespace getVariable ["GRAD_nvacommand_towerLabelList", []];
+        private _towers = missionNamespace getVariable ["GRAD_nvaCommand_towerList", []];
+
+        {
+            private _index = _forEachIndex;
+            private _label = _towerLabels select _index;
+            private _position = _map posWorldToScreen (position _x);
+            _label ctrlsetText (format ["%1/4", _x getVariable ["GRAD_nvaCommand_towerIsManned", 0]]);
+            _label ctrlSetPosition _position;
+            _label ctrlCommit 0;
+        } forEach _towers;
 
     	  private _triggeredSectors = missionNamespace getVariable ["GRAD_nvacommand_triggeredSectors", []];
         private _untriggeredSectors = missionNamespace getVariable ["GRAD_nvacommand_untriggeredSectors", []];
