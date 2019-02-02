@@ -29,20 +29,20 @@ if (isNil QGVAR(helpOpen)) then {GVAR(helpOpen) = false};
 // highcommand mode
 if (_unit == _player) then {
     GVAR(editMode) = 0;
-    GVAR(currentGroup) = grpNull;
+    GVAR(currentGroups) = [];
     GVAR(editableGroups) = [];
     [] call FUNC(updateEditableGroups);
 
 // direct edit mode
 } else {
     GVAR(editMode) = 1;
-    GVAR(currentGroup) = group _unit;
+    GVAR(currentGroups) = [group _unit];
     GVAR(editableGroups) = [group _unit];
 
-    GVAR(currentGroup) setVariable [QGVAR(isDirectEdit),true,true];
-    {[_x,"PATH"] remoteExec ["disableAI",_x,false]} forEach (units GVAR(currentGroup));
+    (group _unit) setVariable [QGVAR(isDirectEdit),true,true];
+    {[_x,"PATH"] remoteExec ["disableAI",_x,false]} forEach (units (group _unit));
 
-    [GVAR(currentGroup)] call GVAR(onGroupSelected);
+    GVAR(currentGroups) call GVAR(onGroupSelected);
 };
 
 _map ctrlAddEventHandler ["Draw",{_this call FUNC(drawEditableGroups)}];

@@ -12,25 +12,25 @@ private _grpWorldPos = getPos leader _nearestGroup;
 private _grpScreenPos = _mapCtrl ctrlMapWorldToScreen _grpWorldPos;
 private _clickDistance = _grpScreenPos distance [_x,_y];
 
-private _previousGroup = missionNamespace getVariable [QGVAR(currentGroup),grpNull];
+private _previousGroups = missionNamespace getVariable [QGVAR(currentGroups),[]];
 
 // click on group
 if (_clickDistance < 0.04 && {!isNull _nearestGroup}) then {
 
-    if (GVAR(currentGroup) != _nearestGroup) then {
-        GVAR(currentGroup) = _nearestGroup;
-        [GVAR(currentGroup)] call GVAR(onGroupSelected);
+    if !(_nearestGroup in GVAR(currentGroups)) then {
+        GVAR(currentGroups) = [_nearestGroup];
+        GVAR(currentGroups) call GVAR(onGroupSelected);
 
-        if (!isNull _previousGroup) then {
-            [_previousGroup] call GVAR(onGroupUnselected);
+        if (count _previousGroups > 0) then {
+            _previousGroups call GVAR(onGroupUnselected);
         };
     };
 
 // click on map
 } else {
-    GVAR(currentGroup) = grpNull;
+    GVAR(currentGroups) = [];
 
-    if (!isNull _previousGroup) then {
-        [_previousGroup] call GVAR(onGroupUnselected);        
+    if (count _previousGroups > 0) then {
+        _previousGroups call GVAR(onGroupUnselected);
     };
 };
