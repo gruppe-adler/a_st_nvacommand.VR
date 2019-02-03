@@ -6,6 +6,7 @@ class GRAD_nvacommand {
     	class addMapEventhandler;
         class addRepairAction { postInit = 1; };
         class alarmDismissAction;
+        class deselectAllTowers;
         class forceDefaultMap { postInit = 1; };    	
     	class initMap;
         class raiseAlarm;
@@ -25,5 +26,6 @@ class GRAD_nvacommand {
          class serverLoop { postInit = 1; };
          class towerAlarm;
          class towerGetIn;
+         class towerShowOptions;
     };
 };

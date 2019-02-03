@@ -19,8 +19,10 @@ _map ctrlAddEventHandler ["MouseButtonClick", {
 
         if (isNull _tower) then {
             [_position] call GRAD_nvacommand_fnc_alarmDismissAction;
+            [] call GRAD_nvacommand_fnc_deselectAllTowers;
         } else {
-            [_tower] call GRAD_nvacommand_fnc_towerAlarm;
+            [] call GRAD_nvacommand_fnc_deselectAllTowers;
+            [_mapCtrl, _tower] call GRAD_nvacommand_fnc_towerShowOptions;
         };
     } else {
         systemChat "rightclick";

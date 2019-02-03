@@ -18,9 +18,14 @@ class CfgGradAICommand {
     canUseHighcommandDefault = 0;
     onMapOpenend = "systemChat 'triggered'; [_this] call GRAD_nvacommand_fnc_initMap;";
 
-    onWaypointCustom1Displayname = "Repair Fence";
-    onWaypointCustom1Action = "hint 'Repair Fence'; [_this] call GRAD_nvacommand_fnc_repairFence;";
-
-    onWaypointCustom2Displayname = "Enter Tower";
-    onWaypointCustom2Action = "hint 'Enter Tower'; [_this] call GRAD_nvacommand_fnc_towerGetIn;";
+    class customWaypointActions {
+        class repairFenceAction {
+            displayName = "Repair Fence";
+            statement = "hint 'Repair Fence'; [this] call GRAD_nvacommand_fnc_repairFence;";
+        };
+        class EnterTowerAction {
+            displayName = "Enter Tower";
+            statement = "hint 'Enter Tower'; [this] call GRAD_nvacommand_fnc_towerGetIn;";
+        };
+    };
 };

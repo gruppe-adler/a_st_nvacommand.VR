@@ -1,4 +1,4 @@
-params ["_group"];
+params ["_unit", "_group"];
 
 private _tower = (position leader _group) nearestObject "Land_Hlaska";
 private _positionBehindDoor = _tower modelToWorld [0,0,-3];
