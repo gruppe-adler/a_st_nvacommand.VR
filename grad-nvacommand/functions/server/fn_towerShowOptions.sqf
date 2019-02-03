@@ -3,7 +3,7 @@ params ["_map", "_tower"];
 
 private _btn = (ctrlParent _map) ctrlCreate ["RscButton", -1];
 _btn ctrlSetText "Raise Alarm";
-_btn ctrlSetPosition [0,0,0.2,0.08];
+_btn ctrlSetPosition [0,0,0.3,0.08];
 _btn ctrlSetPosition (_map posWorldToScreen (position _tower));
 _btn ctrlSetBackgroundColor [0,0,0,1];
 _btn ctrlCommit 0;
@@ -29,11 +29,10 @@ player setVariable ["GRAD_nvacommand_towersSelectedBtn", _btn];
 
 [{
     params ["_args", "_handle"];
-    _args params ["_btn", "_map", "_tower"];
+    _args params ["_btn", "_map", "_tower", "_marker"];
 
     if (isNull (player getVariable ["GRAD_nvacommand_towersSelectedBtn", controlNull])) exitWith {
         [_handle] call CBA_fnc_removePerFramehandler;
-        private _marker = _btn getVariable ["GRAD_nvacommand_ctrlTowerMarkerAssociated", ""];
         if (_marker != "") then {
             deleteMarkerLocal _marker;
         };
@@ -42,6 +41,7 @@ player setVariable ["GRAD_nvacommand_towersSelectedBtn", _btn];
     };
 
     _btn ctrlSetPosition (_map posWorldToScreen (position _tower));
+    _btn ctrlCommit 0;
     
-}, 0, [_btn, _map, _tower]] call CBA_fnc_addPerFramehandler;
+}, 0, [_btn, _map, _tower, _marker]] call CBA_fnc_addPerFramehandler;
 
