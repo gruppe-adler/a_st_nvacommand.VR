@@ -30,3 +30,20 @@ _map ctrlAddEventHandler ["MouseButtonClick", {
 
     false
 }];
+
+
+/* add click EH for zeus functionality */
+
+if (player call BIS_fnc_isCurator) then {
+
+    player addEventHandler ["CuratorObjectDoubleClicked", {
+        params ["_curator", "_entity"];
+
+        private _isTower = ((_entity getVariable ["GRAD_nvaCommand_towerID", -1]) > -1);
+        
+        if (_isTower) then {
+            systemChat "selected Tower";
+        };
+    }];
+
+};
