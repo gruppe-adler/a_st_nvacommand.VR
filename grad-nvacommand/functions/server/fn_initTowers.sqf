@@ -12,7 +12,15 @@ private _towers = (allMissionObjects "Land_Hlaska") + (nearestTerrainObjects [[w
 
 // add towers to all curators to edit/access
 {
-	_x addCuratorEditableObjects [_towers,true ];
+	private _curator = _x;
+	_curator addCuratorEditableObjects [_towers,true ];
+
+
+	
+	{
+	  [ _curator, ["\A3\ui_f\data\map\mapcontrol\taskIcon_ca.paa", [1,1,1,1], position _x, 1, 1, 45, "Tower", 1, 0.05, "TahomaB"], false ] call BIS_fnc_addCuratorIcon;
+	} forEach _towers;
+
 } forEach allCurators;
 
 missionNamespace setVariable ["GRAD_nvaCommand_towerList", _towers, true];
