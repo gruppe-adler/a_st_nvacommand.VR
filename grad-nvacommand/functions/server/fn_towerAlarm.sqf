@@ -26,3 +26,5 @@ private _groupID = format ["Alarmtruppe T%1", _towerID];
 // move out
 _group setGroupIdGlobal [_groupID];
 _group addWaypoint [_positionInFrontOfDoor, 0];
+
+

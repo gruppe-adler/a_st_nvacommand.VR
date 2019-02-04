@@ -21,7 +21,7 @@ _btn ctrlAddEventHandler ["MouseButtonClick", {
 
         private _tower = _control getVariable ["GRAD_nvacommand_ctrlTowerAssociated", objNull];
         if (!isNull _tower) then {
-                [_tower] call GRAD_nvacommand_fnc_towerAlarm;
+                [_tower] remoteExec ["GRAD_nvacommand_fnc_towerAlarm",2];
         };
 }];
 
